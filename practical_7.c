@@ -1,8 +1,8 @@
 # include <stdio.h>
 # include <stdlib.h>
 
-int main()
-{
+int main(){
+    
     FILE *file,*evenfile, *oddfile;
     int n,i,num;
 
@@ -10,15 +10,13 @@ int main()
     scanf("%d",&n);
 
     file =  fopen("new.txt","w");
-    if (file == NULL)
-    {
+    if (file == NULL){
         printf("Error: Couldn't open the file 'new.txt'\n");
         return 1;
     }
 
     printf("Enter %d integers:\n",n);
-    for (i=0;i<n;i++)
-    {
+    for (i=0;i<n;i++) {
         scanf("%d",&num);
         fprintf(file,"%d ",num);
     }
@@ -29,36 +27,28 @@ int main()
     evenfile = fopen("even.txt","w");
     oddfile = fopen("odd.txt","w");
 
-    if (file == NULL || evenfile == NULL || oddfile == NULL)
-    {
+    if (file == NULL || evenfile == NULL || oddfile == NULL){
         printf("Error: Could not open one or more file\n");
         return 1;
     }
     
-    for(i = 0; i<n;i++)
-    {
+    for(i = 0; i<n;i++){
         fscanf(file,"%d",&num);
-        if(num % 2 == 0)
-        {
+        if(num % 2 == 0){
             fprintf(evenfile,"%d ", num);
         }
-        else
-        {
+        else{
             fprintf(oddfile,"%d ", num);
         }
     }
-
     fclose(file);
     fclose(evenfile);
     fclose(oddfile);
 
-    // Displaying the integers in respective files
     oddfile = fopen("odd.txt", "r");
     printf("\nOdd numbers:\n");
-    for ( i = 0; i < n; i++)
-    {
-        if (fscanf(oddfile,"%d",&num) == 1)
-       {
+    for ( i = 0; i < n; i++){
+        if (fscanf(oddfile,"%d",&num) == 1){
             printf("%d ",num);
        }
     }
@@ -66,10 +56,8 @@ int main()
         
     evenfile = fopen("even.txt", "r");
     printf("\nEven numbers:\n");
-    for (i=0;i<n;i++)
-    {
-       if (fscanf(evenfile,"%d",&num) == 1)
-       {
+    for (i=0;i<n;i++) {
+       if (fscanf(evenfile,"%d",&num) == 1){
             printf("%d ",num);
        }
     }
