@@ -1,23 +1,20 @@
 #include <iostream>
-
 using namespace std;
 
 int main()
 {
-    int n;
+    int num;
 
-    cout << "Enter any Integer:";
+    cout << "Enter any Integer:" << endl;
 
-    cin >> n;
+    cin >> num;
 
-    cout << "The number you entered is:" << n;
-
-    if(n%2 == 0)
+    if(num % 2 == 0)
     {
-        cout << "The number is Even";
+        cout << "The number "<< num <<" is Even"<< endl;
     }
     else{
-        cout << "The number is Odd";
+        cout << "The number "<< num <<" is Odd"<< endl;
     }
     return 0;
     
