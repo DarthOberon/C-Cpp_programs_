@@ -4,7 +4,7 @@
 int main()
 {
     FILE *file,*evenfile, *oddfile;
-    int n,i,num,numbers[100];
+    int n,i,num;
 
     printf("Enter how many numbers you want to enter: ");
     scanf("%d",&n);
@@ -38,13 +38,13 @@ int main()
     for(i = 0; i<n;i++)
     {
         fscanf(file,"%d",&num);
-        if(num %2 == 0)
+        if(num % 2 == 0)
         {
-            fprintf(evenfile,"%d ",num);
+            fprintf(evenfile,"%d ", num);
         }
         else
         {
-            fprintf(oddfile,"%d ",num);
+            fprintf(oddfile,"%d ", num);
         }
     }
 
@@ -52,19 +52,29 @@ int main()
     fclose(evenfile);
     fclose(oddfile);
 
+    // Displaying the integers in respective files
     oddfile = fopen("odd.txt", "r");
     printf("\nOdd numbers:\n");
-    while (fscanf(oddfile, "%d", &num) != EOF)
-         printf("%d ", num);
-     fclose(oddfile);
-    
+    for ( i = 0; i < n; i++)
+    {
+        if (fscanf(oddfile,"%d",&num) == 1)
+       {
+            printf("%d ",num);
+       }
+    }
+    fclose(oddfile);
         
     evenfile = fopen("even.txt", "r");
     printf("\nEven numbers:\n");
-    while (fscanf(evenfile, "%d", &num) != EOF)
-        printf("%d ", num);
+    for (i=0;i<n;i++)
+    {
+       if (fscanf(evenfile,"%d",&num) == 1)
+       {
+            printf("%d ",num);
+       }
+    }
     fclose(evenfile);
-    
+
     return 0;
         
 
